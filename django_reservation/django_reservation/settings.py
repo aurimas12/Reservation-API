@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "reservation",
 ]
 
 MIDDLEWARE = [
@@ -76,10 +77,10 @@ WSGI_APPLICATION = "django_reservation.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_pstcopg2",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "reservation",
         "USER": "postgres",
-        "PASSWORD": "jsv06kgus",
+        "PASSWORD": "jv06kgus",
         "HOST": "localhost",
         "PORT": "5432",
     }
