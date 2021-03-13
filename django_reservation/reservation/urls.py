@@ -4,3 +4,4 @@ from reservation.views import *
 
 app_name = "reservations"
 urlpatterns = [path("meet/create/", MeetingCreateView.as_view())]
+urlpatterns = [path("meet/all/", MeetingListView.as_view())]
