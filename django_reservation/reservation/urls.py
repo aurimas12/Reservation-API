@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
 from reservation.views import *
+from rest_framework.authtoken.views import obtain_auth_token
 
 app_name = "reservations"
 urlpatterns = [
+    path("auth/token", obtain_auth_token, name="token"),
+    path("auth/", include("djoser.urls")),
     path("meet/create/", MeetingCreateView.as_view()),
     path("meet/all/", MeetingListView.as_view()),
     path("meet/detail/<int:pk>/", MeetingDetailView.as_view()),
@@ -13,4 +16,6 @@ urlpatterns = [
     path("meet/create/>", create, name="testcreate"),
     path("meet/update/<str:pk>/", update, name="testcreate"),
     path("meet/delete/<str:pk>/", delete, name="testdelete"),
+
+    path('rest-auth/', include('rest_auth.urls')),
 ]

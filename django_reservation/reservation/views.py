@@ -10,7 +10,11 @@ from reservation.models import Meeting
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
+from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
+
+
 class MeetingCreateView(generics.CreateAPIView):
     serializer_class = MeetingDetailSerializer
 
@@ -27,7 +31,7 @@ class MeetingDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(["GET"])
 def read(request):
-
+    permission_classes = (IsAuthenticated,)
     meetings = Meeting.objects.all()
     serializer = MeetingSerializer(meetings, many=True)
 
