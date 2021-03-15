@@ -12,15 +12,15 @@ urlpatterns = [
     path("restricted/", restricted),
 
 
-    # path("meet/create/", MeetingCreateView.as_view()),
+    path("meet/create/", MeetingCreateView.as_view()),
     path("meet/all/", MeetingListView.as_view()),
     path("meet/detail/<int:pk>/", MeetingDetailView.as_view()),
     # path("meet/test/", meeting_view),
     path("meet/read/", read, name="test1"),
-    path("meet/read/<str:pk>", readbyid, name="testdetail"),
-    path("meet/create/", create, name="testcreate"),
-    path("meet/update/<str:pk>/", update, name="testcreate"),
-    path("meet/delete/<str:pk>/", delete, name="testdelete"),
+    path("meet/read/<str:pk>", readbyid),
+
+    path("meet/update/<str:pk>/", update),
+    path("meet/delete/<str:pk>/", delete),
 
     path('rest-auth/', include('rest_auth.urls')),
 
