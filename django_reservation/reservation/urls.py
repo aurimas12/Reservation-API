@@ -7,7 +7,11 @@ app_name = "reservations"
 urlpatterns = [
     path("auth/token", obtain_auth_token, name="token"),
 
-    # path("auth/", include("djoser.urls")),
+    path("", include("djoser.urls")),
+    path("", include("djoser.urls.authtoken")),
+    path("restricted/", restricted),
+
+
     # path("meet/create/", MeetingCreateView.as_view()),
     path("meet/all/", MeetingListView.as_view()),
     path("meet/detail/<int:pk>/", MeetingDetailView.as_view()),
@@ -19,4 +23,6 @@ urlpatterns = [
     path("meet/delete/<str:pk>/", delete, name="testdelete"),
 
     path('rest-auth/', include('rest_auth.urls')),
+
+
 ]

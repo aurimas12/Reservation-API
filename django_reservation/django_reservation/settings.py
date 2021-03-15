@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "reservation",
+    "djoser",
+    # "authentication",
 
 
     'rest_auth'
@@ -131,16 +133,27 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
+DJOSER = {
+    'LOGIN_FIELD': 'email',
+    'USER_CREATE_PASSWORD_RETYPE': True,
+    'SERIALIZERS': {
+        'user_create': 'reservation.serializers.UserCreateSerializer',
+        'user': 'reservation.serializers.UserCreateSerializer',
+
+    },
+}
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
 
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
     ),
 
 }
 
-# AUTH_USER_MODEL
+AUTH_USER_MODEL = 'reservation.User'
