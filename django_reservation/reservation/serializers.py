@@ -9,6 +9,8 @@ class MeetingListSerializer(serializers.ModelSerializer):
 
 
 class MeetingDetailSerializer(serializers.ModelSerializer):
+    # user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Meeting
         fields = "__all__"

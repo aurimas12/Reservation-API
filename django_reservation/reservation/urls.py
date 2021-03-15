@@ -6,14 +6,15 @@ from rest_framework.authtoken.views import obtain_auth_token
 app_name = "reservations"
 urlpatterns = [
     path("auth/token", obtain_auth_token, name="token"),
-    path("auth/", include("djoser.urls")),
-    path("meet/create/", MeetingCreateView.as_view()),
+
+    # path("auth/", include("djoser.urls")),
+    # path("meet/create/", MeetingCreateView.as_view()),
     path("meet/all/", MeetingListView.as_view()),
     path("meet/detail/<int:pk>/", MeetingDetailView.as_view()),
     # path("meet/test/", meeting_view),
     path("meet/read/", read, name="test1"),
     path("meet/read/<str:pk>", readbyid, name="testdetail"),
-    path("meet/create/>", create, name="testcreate"),
+    path("meet/create/", create, name="testcreate"),
     path("meet/update/<str:pk>/", update, name="testcreate"),
     path("meet/delete/<str:pk>/", delete, name="testdelete"),
 
