@@ -12,10 +12,10 @@ urlpatterns = [
     path("restricted/", restricted),
 
 
-    path("meet/create/", MeetingCreateView.as_view()),
-    path("meet/all/", MeetingListView.as_view()),
+    path("meet/create/", MeetingCreateView.as_view(), name='create'),
+    path("meet/all/", MeetingListView.as_view(), name='meetall'),
     path("meet/detail/<int:pk>/", MeetingDetailView.as_view()),
-    # path("meet/test/", meeting_view),
+
     path("meet/read/", read, name="test1"),
     path("meet/read/<str:pk>", readbyid),
 
