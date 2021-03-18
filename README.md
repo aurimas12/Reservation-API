@@ -8,6 +8,7 @@ room’s availability, book or cancel a reservation through an API.
 ## Technologies
   * Django
   * Django REST framework
+  * Djoser
   * PostgreSQL
   * Postman
 
