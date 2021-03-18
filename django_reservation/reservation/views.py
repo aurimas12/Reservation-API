@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from rest_framework import generics
+# local library
 from reservation.serializers import (
     MeetingDetailSerializer,
     MeetingListSerializer,
@@ -7,14 +6,16 @@ from reservation.serializers import (
 )
 from reservation.models import Meeting
 
+# Django
+from django.shortcuts import render
+
+# Third-party
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
-
 from rest_framework.authentication import BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics,status
 
-from rest_framework import status
-# Create your views here.
 
 
 @api_view(['GET'])
@@ -40,21 +41,21 @@ class MeetingDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 @api_view(["GET"])
-def read(request):
+def read(req):
     meetings = Meeting.objects.all()
     serializer = MeetingSerializer(meetings, many=True)
     return Response(serializer.data)
 
 
 @api_view(["GET"])
-def readbyid(request, pk):
+def readbyid(req, pk):
     meeting = Meeting.objects.get(id=pk)
     serializer = MeetingSerializer(meeting, many=False)
     return Response(serializer.data)
 
 
 @api_view(["POST"])
-def update(request, pk):
+def update(req, pk):
     meet = Meeting.objects.get(id=pk)
     serializer = MeetingSerializer(instance=meet, data=request.data)
     if serializer.is_valid():
@@ -63,7 +64,7 @@ def update(request, pk):
 
 
 @api_view(["GET"])
-def delete(request, pk):
+def delete(req, pk):
     meet = Meeting.objects.get(id=pk)
     meet.delete()
     return Response({"message": "Deleted"})

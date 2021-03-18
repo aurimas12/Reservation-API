@@ -1,4 +1,4 @@
-from django.db import models
+# Django library
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -14,11 +14,11 @@ class Meeting(models.Model):
 
 
 class User(AbstractUser):
-    email = models.EmailField(
-        max_length=255, verbose_name='email', unique=True)
+    email = models.EmailField(max_length=255,
+                              verbose_name='email',
+                              unique=True)
     phone = models.EmailField(max_length=255, null=True)
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
-
     USERNAME_FIELD = 'email'
 
     def get_usename(self):

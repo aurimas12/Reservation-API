@@ -1,8 +1,12 @@
-from rest_framework import serializers
-from reservation.models import Meeting
-from djoser.serializers import UserCreateSerializer, UserSerializer
+
+# local Django
 from .models import *
 
+# Django library
+
+# Third-party
+from djoser.serializers import UserCreateSerializer, UserSerializer
+from rest_framework import serializers
 
 class MeetingListSerializer(serializers.ModelSerializer):
     class Meta:
