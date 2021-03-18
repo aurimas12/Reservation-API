@@ -1,6 +1,6 @@
 
 # local Django
-from .models import *
+from .models import Meeting,User
 
 # Django library
 

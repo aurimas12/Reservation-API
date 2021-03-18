@@ -1,11 +1,12 @@
 # local library
+# local Django
+from reservation.models import Meeting
 from reservation.serializers import (
     MeetingDetailSerializer,
     MeetingListSerializer,
     MeetingSerializer,
-)
-from reservation.models import Meeting
-
+    )
+    
 # Django
 from django.shortcuts import render
 
@@ -17,7 +18,6 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import generics,status
 
 
-
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def restricted(request, *args, **kwargs):
@@ -27,6 +27,13 @@ def restricted(request, *args, **kwargs):
 class MeetingCreateView(generics.CreateAPIView):
     serializer_class = MeetingDetailSerializer
 
+    def create(self, request, *args, **kwargs):
+        data=request.POST
+        if data['employees'].isdigit():
+            return super(MeetingCreateView, self).create(request, *args, **kwargs)
+        else:
+            return Response('In employees field you must write number, not letter!')
+        
 
 class MeetingListView(generics.ListAPIView):
     authentication_classes = [TokenAuthentication]
