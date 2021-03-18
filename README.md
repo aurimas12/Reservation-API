@@ -34,4 +34,4 @@ room’s availability, book or cancel a reservation through an API.
    ```
    
 ## Contact
-Created by [@aurimas](www.linkedin.com/in/aurimas-butkevicius-79718a161) - feel free to contact me!
+Created by [@aurimas](https://www.linkedin.com/in/aurimas-butkevicius-79718a161/) - feel free to contact me!
