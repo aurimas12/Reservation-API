@@ -10,13 +10,12 @@ room’s availability, book or cancel a reservation through an API.
   * [ Django REST framework
   * [ PostgreSQL
   * [ Postman
-  * 
 ## Testing API
-Create user: 
+Create user:
 `http://127.0.0.1:8000/api/v1/reservations/users/`
-Get token: 
+Get token:
 `http://127.0.0.1:8000/api/v1/reservations/token/login`
-Autharization with token in postman: 
+Autharization with token in postman:
 `http://127.0.0.1:8000/api/v1/reservations/restricted`
 
 ## Contact
