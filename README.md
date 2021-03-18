@@ -10,12 +10,15 @@ room’s availability, book or cancel a reservation through an API.
   * Django REST framework
   * PostgreSQL
   * Postman
+
+## TO-DO list
+  * CREATE reservation
+  * GET all reservation
+  * GET details reservation
+  * CANCEL reservation
+
+
 ## Testing API
-
-
-
-
-
 * Create user:
    ```sh
    http://127.0.0.1:8000/api/v1/reservations/users/
@@ -28,5 +31,6 @@ room’s availability, book or cancel a reservation through an API.
    ```sh
    http://127.0.0.1:8000/api/v1/reservations/restricted';
    ```
+   
 ## Contact
 Created by [@aurimas](www.linkedin.com/in/aurimas-butkevicius-79718a161) - feel free to contact me!
