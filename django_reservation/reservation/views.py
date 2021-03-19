@@ -20,17 +20,17 @@ from rest_framework import generics,status
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def restricted(request, *args, **kwargs):
+def restricted(req, *args, **kwargs):
     return Response(data='Only for Logged in User', status=status.HTTP_200_OK)
 
 
 class MeetingCreateView(generics.CreateAPIView):
     serializer_class = MeetingDetailSerializer
 
-    def create(self, request, *args, **kwargs):
+    def create(self, req, *args, **kwargs):
         data=request.POST
         if data['employees'].isdigit():
-            return super(MeetingCreateView, self).create(request, *args, **kwargs)
+            return super(MeetingCreateView, self).create(req, *args, **kwargs)
         else:
             return Response('In employees field you must write number, not letter!')
         
