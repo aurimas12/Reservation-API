@@ -30,7 +30,7 @@ room’s availability, book or cancel a reservation through an API.
    ```
 * Autharization with token:
    ```sh
-   http://127.0.0.1:8000/api/v1/reservations/restricted';
+   http://127.0.0.1:8000/api/v1/reservations/restricted
    ```
    
 ## Contact
